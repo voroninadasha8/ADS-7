@@ -95,7 +95,7 @@ void TPQueue<T>::print() const {
   Item* temps1 = head;
   while (temps1) {
     std::cout << temps1->data << " ";
-    temps = temps1->next;
+    temps1 = temps1->next;
   }
   std::cout << std::endl;
 }
