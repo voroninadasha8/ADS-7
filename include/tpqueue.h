@@ -16,7 +16,9 @@ class TPQueue {
     Item* tail;
     TPQueue::Item* create(const T&);
  public:
-    TPQueue() : head(nullptr), tail(nullptr) { }
+    TPQueue() : head(nullptr), tail(nullptr) {
+    
+    }
     ~TPQueue();
     void push(const T&);
     T pop();
@@ -68,7 +70,7 @@ void TPQueue<T>::push(const T& values) {
     if (tm == head && tm->data.prior < values.prior) {
       head->early = create(values);
       head = head->early;
-      tm = head->next;
+      head->next = tm;
     }
   }
 }
