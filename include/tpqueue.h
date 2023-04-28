@@ -57,19 +57,19 @@ void TPQueue<T>::push(const T& values) {
     while (tm != head && tm->data.prior < values.prior) {
       tm = tm->early;
     }
-   if (tm->data.prior > values.prior) {
-     Item* el = new Item;
-     el->next = tm->next;
-     el->early = tm;
-     el->data = values;
-     tm->next->early = el;
-     tm->next = el;
-   }
-   if (tm == head && tm->data.prior < values.prior) {
-     head->early = create(values);
-     head = head->early;
-     tm = head->next;
-   }
+    if (tm->data.prior > values.prior) {
+      Item* el = new Item;
+      el->next = tm->next;
+      el->early = tm;
+      el->data = values;
+      tm->next->early = el;
+      tm->next = el;
+    }
+    if (tm == head && tm->data.prior < values.prior) {
+      head->early = create(values);
+      head = head->early;
+      tm = head->next;
+    }
   }
 }
 template <typename T>
